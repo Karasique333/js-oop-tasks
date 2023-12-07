@@ -43,5 +43,23 @@ describe('es6', () => {
             // TODO
             assert.strictEqual(!!dic, true);
         });
+
+        it('Добавление слова', () => {
+            const dictionary = new core.Dictionary()
+            dictionary.addWord("Чай", "Напиток")
+            assert.strictEqual(dictionary.getDefinition("Чай"), "Напиток")
+        });
+
+        it('Удаление слова', () => {
+            const dictionary = new core.Dictionary()
+            dictionary.addWord("Чай", "Напиток")
+            dictionary.removeWord("Чай")
+            assert.strictEqual(dictionary.getDefinition("Чай"), undefined)
+        });
+
+        it('Ошибка при добавлении не строки', () => {
+            const dictionary = new core.Dictionary()
+            assert.throws(() => dictionary.addWord(456,'Напиток'), Error)
+        });
     });
 });
