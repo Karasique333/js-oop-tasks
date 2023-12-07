@@ -89,5 +89,24 @@ describe('ООП', () => {
            // TODO: ваши тесты
             assert.strictEqual(true, true);
         });
+        it('Проверка метода push ', () => {
+            const queue = new core.Queue([1]);
+            queue.push(10)
+            queue.pop()
+            assert.strictEqual(queue.pop(), 10)
+        });
+        it('Проверка метода pop', () => {
+            const queue = new core.Queue([1,-2,3,5]);
+            assert.strictEqual(queue.pop(), 1)
+        });
+        it('Проверка метода size', () => {
+            const queue = new core.Queue([1,-2,3,5]);
+            assert.strictEqual(queue.size, 4)
+        });
+        it('Проверка метода clear', () => {
+            const queue = new core.Queue([1,-2,3,5]);
+            queue.clear()
+            assert.deepStrictEqual(queue.queue, [])
+        });
     });
 });
